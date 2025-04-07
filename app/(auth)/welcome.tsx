@@ -5,10 +5,12 @@ import { router } from "expo-router";
 import Swiper from "react-native-swiper";
 import { useRef, useState } from "react";
 import { onboarding } from "@/constants";
+import CustomBotton from "@/components/CustomBotton";
 
 const Onboarding = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeindex, setActiveindex] = useState(0);
+  const isLastSlide = activeindex === onboarding.length - 1;
   return (
     <SafeAreaView className="flex items-center justify-between h-full bg-white">
       <TouchableOpacity
@@ -50,6 +52,15 @@ const Onboarding = () => {
           </View>
         ))}
       </Swiper>
+      <CustomBotton
+        onPress={() =>
+          isLastSlide
+            ? router.replace("/(auth)/sign-up")
+            : swiperRef.current?.scrollBy(1)
+        }
+        title={isLastSlide ? "Get Started" : "Next"}
+        className="w-11/12 mt-10 mb-5"
+      />
     </SafeAreaView>
   );
 };

@@ -11,5 +11,12 @@
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  }
+  },
+  "errorLens.sourceColor": {
+  "eslint": "#FF8800",         // Linter (por ejemplo, ESLint): naranja
+  "typescript": "#FF0000",     // Errores de TypeScript: rojo
+  "python": "#FF0000",         // Para Python (si usas PyLance, etc.)
+  "default": "#CCCCCC"         // Cualquier otra fuente
+}
+
 }
